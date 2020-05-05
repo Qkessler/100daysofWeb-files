@@ -6,6 +6,12 @@ from datetime import datetime
 @app.route('/')
 @app.route('/index')
 def index():
-    # context['time'] = datetime.now()
-    # return render_template('index.html', context)
     return render_template('index.html')
+
+
+def get_random_beer()
+
+
+@app.context_processor
+def get_context():
+    return dict(date=datetime.now())
