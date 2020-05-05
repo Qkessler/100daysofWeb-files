@@ -9,7 +9,9 @@ def index():
     return render_template('index.html')
 
 
-def get_random_beer()
+@app.route('/beers')
+def get_random_beer():
+    return 'This is the beers page'
 
 
 @app.context_processor
