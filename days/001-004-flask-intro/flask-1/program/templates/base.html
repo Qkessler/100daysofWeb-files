@@ -1,24 +1,17 @@
 <!doctype html>
-<html>
-    <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- load MUI -->
-	<link href="//cdn.muicss.com/mui-0.10.2/css/mui.min.css" rel="stylesheet" type="text/css" />
-	<script src="//cdn.muicss.com/mui-0.10.2/js/mui.min.js"></script>
-    </head>
-    <body>
-	<!-- example content -->
-	<div class="mui-container">
-	    <div class="mui-panel">
-		<h1>Base html flask app</h1>
-		<button class="mui-btn mui-btn--primary mui-btn--raised"><a href="/index">Home </a></button>
-		<button class="mui-btn mui-btn--primary mui-btn--raised"><a href="/beers">Random beer </a></button>
-	    </div>
-	</div>
-	{% block content %}
-	{% endblock %}
-    </body>
-</html>
+{% extends "bootstrap/base.html" %}
+{% block navbar %}
+<div class="navbar navbar-expand-lg navbar-light bg-light">
+    <ul class="navbar-nav mr-auto">
+	<li class="nav-item">
+	    <a class="nav-link" href="/index">Home</a>
+	</li>
+	<li class="nav-item">
+	    <a class="nav-link" href="/beers">Random beer</a>
+	</li>
+    </ul>
+</div>
+{% endblock %}
+{% block content %}
+{% endblock %}
 
