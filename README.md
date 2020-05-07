@@ -1,4 +1,4 @@
 # 100daysofWeb-files
 These are the files for the 100 days of python web course.
 
-[06/05/20]: Finished the first flask group, searching for some bootstrap templates for flask, found the flask-bootstrap pip package.
+[07/05/20]: Started the html group watching the videos and config emacs for a better env to web dev.
