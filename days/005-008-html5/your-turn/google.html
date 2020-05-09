@@ -13,21 +13,8 @@
 	     background:#ECE8E8;
 	     padding:20px;
 	 }
-	 .topics_table {
-	     background:#91F6E4;
-	     text-align:center;
-	     display: inline-block;
-
-	 }
-	 .middle_table {
-	     background:#28D7B9;
-	     text-align:center;
-	     display: inline-block;
-	 }
-	 .right_table{
-	     background:#3D8276;
-	     text-align:center;
-	     display: inline-block;
+	 .table{
+	     text-align: center;
 	 }
 	</style>
     </head>
@@ -43,30 +30,28 @@
 		<input name="feeling_lucky_button" type="submit" value="I'm feeling lucky"/>
 	    </form>
 	</div>
-	<table class="left_table">
+	<table border="0" width="100%" class="table">
 	    <tr>
-		<p>Special Searches</p>
-		<a href="#">Standford Search</a><br>
-		<a href="#">Linux Search</a><br>
-	    </tr>
-	</table>
-	<table class="middle_table">
-	    <tr>
-		<a href="#">Help!</a><br>
-		<a href="#">About Google!</a><br>
-		<a href="#">Company Info</a><br>
-		<a href="#">Google! Logos</a><br>
-	    </tr>
-	</table>
-	<table class="right_table">
-	    <tr>
-		<p>Get Google!</p><br>
-		<p>updates monthly:</p>
-		<form action="" method="post">
-		    <input name="email" type="email" value="your e-mail"/><br>
-		    <input name="suscribe" type="submit" value="Subscribe"/>
-		    <a href="#">Archive</a>
-		</form>
+		<td bgcolor="#91F6E4" width="33%">
+		    <p>Special Searches</p>
+		    <a href="#">Standford Search</a><br>
+		    <a href="#">Linux Search</a><br>
+
+		</td>
+		<td bgcolor="#28D7B9" width="33%">
+		    <a href="#">Help!</a><br>
+		    <a href="#">About Google!</a><br>
+		    <a href="#">Company Info</a><br>
+		    <a href="#">Google! Logos</a><br>
+		</td>
+		<td bgcolor="#3D8276" width="33%">
+		    <p>Get Google!</p>
+		    <p>updates monthly:</p>
+		    <form action="" method="post">
+			<input name="email" type="email" placeholder="your e-mail"/><br>
+			<input name="suscribe" type="submit" value="Subscribe"/>
+		    </form>
+		</td>
 	    </tr>
 	</table>
     </body>
