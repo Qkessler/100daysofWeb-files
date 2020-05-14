@@ -5,22 +5,12 @@ from pprint import pprint as pp
 from apistar import App, Route, types, validators
 from bs4 import BeautifulSoup
 from apistar.http import JSONResponse
-from translate import Translator
+from googletrans import Translator, LANGUAGES, LANGCODES
 import requests
 
 
 headers= 'id,created,topic,question,answer'.split(',')
 data = {}
-
-def get_languages():
-    req = requests.get('http://www.mathguide.de/info/tools/languagecode.html')
-    content = req.content
-    entire_file = BeautifulSoup(content, 'html.parser')
-    first_table = entire_file.find_all('td')[0].find_all('tr')[1:].find_all('td')
-    print(first_table)
-    # languages_html = first_table[1:]
-    # for l in languages_html:
-    #     print(l.string)
 
 
 def load_csv():
@@ -45,16 +35,26 @@ class Question(types.Type):
 
 
 def list_questions(language):
-    translator = Translator(to_lang=language)
-    print(list(data.values())[0].get('id'))
-    return_data = [Question(id=int(question[1].get('id')), created=question[1].get('created'),
-                            topic=int(question[1].get('topic')),
-                            question=question[1].get('question'),
-                            answer=question[1].get('answer'))
-                   for question in data.items()]
-    return JSONResponse(return_data, status_code=200)
+    if language in LANGCODES.values():
+        translator = Translator()
+        return_data = [Question(id=int(question[1].get('id')), created=question[1].get('created'),
+                                topic=int(question[1].get('topic')),
+                                question=translator.translate(question[1].get('question'), dest=language).text,
+                                answer=translator.translate(question[1].get('answer'), dest=language).text)
+                       for question in data.items()]
+        return JSONResponse(return_data, status_code=200)
+    else:
+        return JSONResponse({}, status_code=400)
 
+    
+def test_language_translation(language, string):
+    if language in LANGCODES.values():
+        translator = Translator()
+        return translator.translate(string, dest=language).text
+    else:
+        return None
 
+    
 def create_question():
     pass
 
@@ -73,6 +73,7 @@ app = App(routes=routes)
 
 
 if __name__ == '__main__':
-    # load_csv()
-    # app.serve('127.0.0.1', 5000, debug=True)
-    get_languages()
+    # print(LANGCODES)
+    # print(test_language_translation('fr','This is english'))
+    load_csv()
+    app.serve('127.0.0.1', 5000, debug=True)
