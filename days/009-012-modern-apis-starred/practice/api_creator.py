@@ -1,8 +1,5 @@
-import json
-from typing import List
 import csv
 from datetime import datetime
-from pprint import pprint as pp
 from apistar import App, Route, types, validators
 from bs4 import BeautifulSoup
 from apistar.http import JSONResponse
@@ -10,7 +7,7 @@ from googletrans import Translator, LANGUAGES, LANGCODES
 import requests
 
 
-headers= 'id,created,topic,question,answer'.split(',')
+headers = 'id,created,topic,question,answer'.split(',')
 questions = {}
 
 
@@ -47,16 +44,14 @@ def list_questions(language):
                                                             dest=language).text)
                        for question in data.items()]
         return JSONResponse(return_data, status_code=200)
-    else:
-        return JSONResponse({}, status_code=400)
+    return JSONResponse({}, status_code=400)
 
-    
+
 def test_language_translation(language, string):
     if language in LANGCODES.values():
         translator = Translator()
         return translator.translate(string, dest=language).text
-    else:
-        return None
+    return None
 
     
 def create_question(question):

@@ -1,0 +1,12 @@
+.navbar {
+    text-align: center;
+    background: #3e3847;
+}
+
+.navbar li {
+    font-family: 'Jost', sans-serif;
+    color: #79777d;
+    display: inline-block;
+    padding: 10px;
+    padding-right: 10px;
+}
