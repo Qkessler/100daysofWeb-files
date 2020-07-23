@@ -1,12 +1,38 @@
-.navbar {
-    text-align: center;
-    background: #3e3847;
+.navbar-li {
+    list-style: none;
+    display: inline-block;
+    padding: 0px 15px 0px 15px;
 }
 
-.navbar li {
-    font-family: 'Jost', sans-serif;
-    color: #79777d;
+.navbar-li a {
+    text-decoration: none;
+}
+
+#navbar-links{
     display: inline-block;
+}
+
+#navbar-title {
+    display: inline-block;
+    padding: 0px 40px 0px 40px;
+    font-size: 30px;
+}
+
+#navbar-title-text {
+    text-decoration: none;
+}
+
+#navbar-title:hover {
+    color: #EE964B;
+}
+
+.navbar{
+    width: 80%;
+    margin: 0 auto;
+    background: #12100E;
     padding: 10px;
-    padding-right: 10px;
+}
+
+.navbar-item {
+    color: #829399;
 }
